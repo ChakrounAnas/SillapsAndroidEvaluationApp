@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="dark_grey">#A9A9A9</color>
+    <color name="black">#000000</color>
+    <color name="polylineColor">#f4bc2f</color>
+    <color name="backgroundColor">#f7f7f7</color>
+    <color name="destination_default_color">#cacaca</color>
+</resources>

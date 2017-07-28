@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "394249391937",
+    "firebase_url": "https://circular-ally-174301.firebaseio.com",
+    "project_id": "circular-ally-174301",
+    "storage_bucket": "circular-ally-174301.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394249391937:android:c678d30ebceef631",
+        "android_client_info": {
+          "package_name": "com.sillaps.evaluationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394249391937-klgs926j80uuefdhndc3htojogjh9jts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChQwjMODurNhZs0V39iMWC0H0uVUWX_O0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

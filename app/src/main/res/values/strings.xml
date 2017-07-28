@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- App's name -->
+    <string name="app_name">NOWGO</string>
+
+    <!-- Bottom navigation tabs titles -->
+    <string name="title_home">Home</string>
+    <string name="title_discover">Discover</string>
+    <string name="title_calculate_fee">Calculate Fee</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- Current position and destination layout -->
+    <string name="your_location">Your Location</string>
+
+    <!-- Destination image and route informations -->
+    <string name="start">START</string>
+    <string name="one_hour">1 hour</string>
+    <string name="many_hours">%1$s hours</string>
+    <string name="one_minute"> 1 minute</string>
+    <string name="many_minutes">%1$s minutes</string>
+    <string name="distance">%1$s km</string>
+
+    <!-- Fonts -->
+    <string name="merriweather_black_font">fonts/Merriweather-Black.ttf</string>
+
+    <!-- Toolbar images descriptions -->
+    <string name="walking_mode">Walking mode</string>
+    <string name="transit_mode">Transit mode</string>
+    <string name="car_mode">Car mode</string>
+    <string name="via">via</string>
+    <string name="car">\u0020Car</string>
+    <string name="transit">\u0020Transit</string>
+    <string name="foots">\u0020Foots</string>
+
+    <string name="up_down_ic_desc">From current position to destination icon</string>
+    <string name="choose_destination">Choose destination</string>
+
+    <!-- No internet connection -->
+    <string name="no_internet_connection_image_desc">No internet connection image</string>
+    <string name="oops">Whoops ! </string>
+    <string name="no_internet_connection_message">
+        Please check your internet connection and try again.
+    </string>
+    <string name="retry">Retry</string>
+
+    <!-- Location service -->
+    <string name="location_service_off_image_desc">No internet connection image</string>
+    <string name="location_service_off_message">
+        Let us know your current position so that we can show the most important places around you.
+    </string>
+    <string name="turn_on_location">Turn On Location</string>
+
+    <!-- Errors messages -->
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="error_occurred">Sorry, An error has occurred. Please try again.</string>
+</resources>
