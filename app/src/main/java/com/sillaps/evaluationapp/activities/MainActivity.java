@@ -1,6 +1,7 @@
 package com.sillaps.evaluationapp.activities;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -270,6 +271,20 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case RESULT_CANCELED:
                         break;
+                }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        switch (requestCode) {
+            // Handle user response to access location permission request
+            case 0x2:
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    appMap.setMapCallbacks();
+                } else {
+                    appMap.requestPermissions();
                 }
         }
     }

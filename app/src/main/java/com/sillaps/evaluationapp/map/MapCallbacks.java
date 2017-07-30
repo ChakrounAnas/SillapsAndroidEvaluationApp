@@ -110,7 +110,6 @@ class MapCallbacks implements
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Log.d(TAG, "onMapReady: ");
         appMap.setMap(googleMap);
         try {
             mFusedLocationClient.getLastLocation()

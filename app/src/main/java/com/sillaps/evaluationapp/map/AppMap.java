@@ -2,7 +2,10 @@ package com.sillaps.evaluationapp.map;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Gravity;
@@ -21,7 +24,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.model.TravelMode;
+import com.sillaps.evaluationapp.Manifest;
 import com.sillaps.evaluationapp.R;
+import com.sillaps.evaluationapp.activities.MainActivity;
 import com.sillaps.evaluationapp.api.GoogleDirections;
 import com.sillaps.evaluationapp.api.GoogleGeocoding;
 import com.sillaps.evaluationapp.elements.LocationDestinationLayout;
@@ -153,6 +158,11 @@ public class AppMap implements GoogleMap.OnMarkerClickListener{
     private boolean showingPath;
 
     /**
+     * @see SupportMapFragment
+     */
+    private SupportMapFragment mapFragment;
+
+    /**
      * AppMap constructor
      * @param context
      * Context from which this class get instantiated
@@ -186,12 +196,51 @@ public class AppMap implements GoogleMap.OnMarkerClickListener{
         this.currentPathLines = new ArrayList<>();
         this.checkInternetConnectionAndDrawPath
                 = new CheckInternetConnectionAndThenDrawTheRoute();
-        mapFragment.getMapAsync(new MapCallbacks(context, this));
+        this.mapFragment = mapFragment;
+        requestPermissions();
     }
 
     void setMap(GoogleMap map) {
         this.mMap = map;
         this.mMap.setOnMarkerClickListener(this);
+    }
+
+    /**
+     * Set map callbacks
+     */
+    public void setMapCallbacks() {
+        mapFragment.getMapAsync(new MapCallbacks(context, this));
+    }
+
+    /**
+     * Starting from Android 6.0, users grant permissions to apps while the app is running <br>
+     * This function check if access location permission is granted to the app
+     * @return permission granted or not
+     */
+    private boolean checkPermissions() {
+        if(android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            int fineLocationPermission =
+                    ContextCompat.checkSelfPermission(context,
+                                    android.Manifest.permission.ACCESS_FINE_LOCATION);
+            return (fineLocationPermission == PackageManager.PERMISSION_GRANTED);
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * The goal of this function it's to check if the app has location access permission
+     * If so we set the map callbacks in order to get user location
+     * If not we ask the permission of the user so we have the permission and then access
+     * his location
+     */
+    public void requestPermissions() {
+        if(checkPermissions()) {
+            setMapCallbacks();
+        } else {
+            ActivityCompat.requestPermissions((Activity) context,
+                    new String[] {android.Manifest.permission.ACCESS_FINE_LOCATION}, 0x2);
+        }
     }
 
     void setCurrentUserPosition(LatLng position) {
